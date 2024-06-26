@@ -1,7 +1,7 @@
 import 'http_headers_provider_callbacks.dart';
 
 abstract class HttpHeadersProvider {
-  Map<String, String>? requestHeaders({
+  Future<Map<String, String>?> requestHeaders({
     required String url,
     required String requestId,
   });
@@ -9,7 +9,7 @@ abstract class HttpHeadersProvider {
 
 class HttpHeadersProviderImpl implements HttpHeadersProvider {
   @override
-  Map<String, String>? requestHeaders({
+  Future<Map<String, String>?> requestHeaders({
     required String url,
     required String requestId,
   }) {

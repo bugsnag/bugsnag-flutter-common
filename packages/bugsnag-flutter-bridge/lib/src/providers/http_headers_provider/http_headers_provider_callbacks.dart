@@ -1,4 +1,4 @@
-typedef HttpHeadersCallback = Map<String, String>? Function(
+typedef HttpHeadersCallback = Future<Map<String, String>?> Function(
   String url,
   String requestId,
 );
@@ -6,13 +6,13 @@ typedef HttpHeadersCallback = Map<String, String>? Function(
 class HttpHeadersProviderCallbacks {
   HttpHeadersCallback? _httpRequestHeadersCallback;
 
-  Map<String, String>? getRequestHeaders({
+  Future<Map<String, String>?> getRequestHeaders({
     required String url,
     required String requestId,
   }) {
     final callback = _httpRequestHeadersCallback;
     if (callback == null) {
-      return null;
+      return Future.value(null);
     }
     return callback(
       url,
