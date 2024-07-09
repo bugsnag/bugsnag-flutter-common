@@ -1,12 +1,12 @@
 import 'package:bugsnag_bridge/src/providers/context_provider/bugsnag_context_provider.dart';
 
-typedef BugsnagSpanContextCallback = BugsnagSpanContext? Function();
+typedef BugsnagTraceContextCallback = BugsnagTraceContext? Function();
 
 class BugsnagContextProviderCallbacks {
-  BugsnagSpanContextCallback? _currentSpanContextCallback;
+  BugsnagTraceContextCallback? _currentTraceContextCallback;
 
-  BugsnagSpanContext? getCurrentSpanContext() {
-    final callback = _currentSpanContextCallback;
+  BugsnagTraceContext? getCurrentTraceContext() {
+    final callback = _currentTraceContextCallback;
     if (callback == null) {
       return null;
     }
@@ -14,11 +14,11 @@ class BugsnagContextProviderCallbacks {
   }
 
   static setup({
-    BugsnagSpanContextCallback? currentSpanContextCallback,
+    BugsnagTraceContextCallback? currentTraceContextCallback,
   }) {
-    if (currentSpanContextCallback != null) {
-      bugsnagContextProviderCallbacks._currentSpanContextCallback =
-          currentSpanContextCallback;
+    if (currentTraceContextCallback != null) {
+      bugsnagContextProviderCallbacks._currentTraceContextCallback =
+          currentTraceContextCallback;
     }
   }
 }

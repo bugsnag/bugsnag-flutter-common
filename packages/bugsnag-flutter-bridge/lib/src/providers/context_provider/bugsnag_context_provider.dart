@@ -1,22 +1,22 @@
 import 'package:bugsnag_bridge/src/providers/context_provider/bugsnag_context_provider_callbacks.dart';
 
-class BugsnagSpanContext {
+class BugsnagTraceContext {
   final String spanId;
   final String traceId;
 
-  BugsnagSpanContext({
+  BugsnagTraceContext({
     required this.spanId,
     required this.traceId,
   });
 }
 
 abstract class BugsnagContextProvider {
-  BugsnagSpanContext? getCurrentSpanContext();
+  BugsnagTraceContext? getCurrentTraceContext();
 }
 
 class BugsnagContextProviderImpl implements BugsnagContextProvider {
   @override
-  BugsnagSpanContext? getCurrentSpanContext() {
-    return bugsnagContextProviderCallbacks.getCurrentSpanContext();
+  BugsnagTraceContext? getCurrentTraceContext() {
+    return bugsnagContextProviderCallbacks.getCurrentTraceContext();
   }
 }
