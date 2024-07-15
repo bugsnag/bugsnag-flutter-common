@@ -1,8 +1,7 @@
 name: bugsnag_bridge
 description: "BugSnag flutter bridge."
-version: 0.1.0
+version: 1.0.0
 homepage: https://www.bugsnag.com/
-documentation: https://docs.bugsnag.com/performance/flutter/
 repository: https://github.com/bugsnag/bugsnag-flutter-common
 issue_tracker: https://github.com/bugsnag/bugsnag-flutter-common/issues
 
