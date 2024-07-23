@@ -14,9 +14,7 @@ dependencies:
   flutter:
     sdk: flutter
   bugsnag_bridge:
-    git:
-      url: https://github.com/bugsnag/bugsnag-flutter-common
-      path: packages/bugsnag-flutter-bridge
+    path: ../bugsnag_bridge
 
 
 dev_dependencies:
