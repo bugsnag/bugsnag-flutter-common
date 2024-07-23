@@ -12,7 +12,7 @@ void addSubscriber(dynamic Function(dynamic)? callback) {
 
 class HttpClient implements dart_io.HttpClient {
   final dart_io.HttpClient _client = dart_io.HttpClient();
-  late HttpHeadersProvider _headersProvider = HttpHeadersProviderImpl();
+  late final HttpHeadersProvider _headersProvider = HttpHeadersProviderImpl();
   static int _requestId = 0;
   @override
   bool autoUncompress = true;
@@ -143,11 +143,10 @@ class HttpClient implements dart_io.HttpClient {
     final requestId = _sendRequestStartNotification('$host:$port$path', 'GET');
     return _getClient().get(host, port, path).then(
       (dart_io.HttpClientRequest request) async {
-        await _headersProvider
-            .requestHeaders(
-              url: request.uri.toString(),
-              requestId: requestId,
-            )
+        (await _headersProvider.requestHeaders(
+          url: request.uri.toString(),
+          requestId: requestId,
+        ))
             ?.forEach((key, value) => request.headers.set(key, value));
 
         request.done.then((dart_io.HttpClientResponse response) {
@@ -165,11 +164,10 @@ class HttpClient implements dart_io.HttpClient {
     final requestId = _sendRequestStartNotification(url.toString(), 'GET');
     return _getClient().getUrl(url).then(
       (dart_io.HttpClientRequest request) async {
-        await _headersProvider
-            .requestHeaders(
-              url: request.uri.toString(),
-              requestId: requestId,
-            )
+        (await _headersProvider.requestHeaders(
+          url: request.uri.toString(),
+          requestId: requestId,
+        ))
             ?.forEach((key, value) => request.headers.set(key, value));
 
         request.done.then((dart_io.HttpClientResponse response) {
@@ -191,11 +189,10 @@ class HttpClient implements dart_io.HttpClient {
 
     return _getClient().delete(host, port, path).then(
       (dart_io.HttpClientRequest request) async {
-        await _headersProvider
-            .requestHeaders(
-              url: request.uri.toString(),
-              requestId: requestId,
-            )
+        (await _headersProvider.requestHeaders(
+          url: request.uri.toString(),
+          requestId: requestId,
+        ))
             ?.forEach((key, value) => request.headers.set(key, value));
 
         request.done.then((dart_io.HttpClientResponse response) {
@@ -213,11 +210,10 @@ class HttpClient implements dart_io.HttpClient {
     final requestId = _sendRequestStartNotification(url.toString(), 'DELETE');
     return _getClient().deleteUrl(url).then(
       (dart_io.HttpClientRequest request) async {
-        await _headersProvider
-            .requestHeaders(
-              url: request.uri.toString(),
-              requestId: requestId,
-            )
+        (await _headersProvider.requestHeaders(
+          url: request.uri.toString(),
+          requestId: requestId,
+        ))
             ?.forEach((key, value) => request.headers.set(key, value));
 
         request.done.then((dart_io.HttpClientResponse response) {
@@ -244,11 +240,10 @@ class HttpClient implements dart_io.HttpClient {
     final requestId = _sendRequestStartNotification('$host:$port$path', 'HEAD');
     return _getClient().head(host, port, path).then(
       (dart_io.HttpClientRequest request) async {
-        await _headersProvider
-            .requestHeaders(
-              url: request.uri.toString(),
-              requestId: requestId,
-            )
+        (await _headersProvider.requestHeaders(
+          url: request.uri.toString(),
+          requestId: requestId,
+        ))
             ?.forEach((key, value) => request.headers.set(key, value));
 
         request.done.then((dart_io.HttpClientResponse response) {
@@ -266,11 +261,10 @@ class HttpClient implements dart_io.HttpClient {
     final requestId = _sendRequestStartNotification(url.toString(), 'HEAD');
     return _getClient().headUrl(url).then(
       (dart_io.HttpClientRequest request) async {
-        await _headersProvider
-            .requestHeaders(
-              url: request.uri.toString(),
-              requestId: requestId,
-            )
+        (await _headersProvider.requestHeaders(
+          url: request.uri.toString(),
+          requestId: requestId,
+        ))
             ?.forEach((key, value) => request.headers.set(key, value));
 
         request.done.then((dart_io.HttpClientResponse response) {
@@ -298,11 +292,10 @@ class HttpClient implements dart_io.HttpClient {
     final requestId = _sendRequestStartNotification('$host:$port$path', method);
     return _getClient().open(method, host, port, path).then(
       (dart_io.HttpClientRequest request) async {
-        await _headersProvider
-            .requestHeaders(
-              url: request.uri.toString(),
-              requestId: requestId,
-            )
+        (await _headersProvider.requestHeaders(
+          url: request.uri.toString(),
+          requestId: requestId,
+        ))
             ?.forEach((key, value) => request.headers.set(key, value));
 
         request.done.then((dart_io.HttpClientResponse response) {
@@ -320,11 +313,10 @@ class HttpClient implements dart_io.HttpClient {
     final requestId = _sendRequestStartNotification(url.toString(), method);
     return _getClient().openUrl(method, url).then(
       (dart_io.HttpClientRequest request) async {
-        await _headersProvider
-            .requestHeaders(
-              url: request.uri.toString(),
-              requestId: requestId,
-            )
+        (await _headersProvider.requestHeaders(
+          url: request.uri.toString(),
+          requestId: requestId,
+        ))
             ?.forEach((key, value) => request.headers.set(key, value));
 
         request.done.then((dart_io.HttpClientResponse response) {
@@ -343,11 +335,10 @@ class HttpClient implements dart_io.HttpClient {
         _sendRequestStartNotification('$host:$port$path', 'PATCH');
     return _getClient().patch(host, port, path).then(
       (dart_io.HttpClientRequest request) async {
-        await _headersProvider
-            .requestHeaders(
-              url: request.uri.toString(),
-              requestId: requestId,
-            )
+        (await _headersProvider.requestHeaders(
+          url: request.uri.toString(),
+          requestId: requestId,
+        ))
             ?.forEach((key, value) => request.headers.set(key, value));
 
         request.done.then((dart_io.HttpClientResponse response) {
@@ -365,11 +356,10 @@ class HttpClient implements dart_io.HttpClient {
     final requestId = _sendRequestStartNotification(url.toString(), 'PATCH');
     return _getClient().patchUrl(url).then(
       (dart_io.HttpClientRequest request) async {
-        await _headersProvider
-            .requestHeaders(
-              url: request.uri.toString(),
-              requestId: requestId,
-            )
+        (await _headersProvider.requestHeaders(
+          url: request.uri.toString(),
+          requestId: requestId,
+        ))
             ?.forEach((key, value) => request.headers.set(key, value));
 
         request.done.then((dart_io.HttpClientResponse response) {
@@ -388,11 +378,10 @@ class HttpClient implements dart_io.HttpClient {
     return _getClient()
         .post(host, port, path)
         .then((dart_io.HttpClientRequest request) async {
-      await _headersProvider
-          .requestHeaders(
-            url: request.uri.toString(),
-            requestId: requestId,
-          )
+      (await _headersProvider.requestHeaders(
+        url: request.uri.toString(),
+        requestId: requestId,
+      ))
           ?.forEach((key, value) => request.headers.set(key, value));
 
       request.done.then((dart_io.HttpClientResponse response) {
@@ -409,11 +398,10 @@ class HttpClient implements dart_io.HttpClient {
     final requestId = _sendRequestStartNotification(url.toString(), 'POST');
     return _getClient().postUrl(url).then(
       (dart_io.HttpClientRequest request) async {
-        await _headersProvider
-            .requestHeaders(
-              url: request.uri.toString(),
-              requestId: requestId,
-            )
+        (await _headersProvider.requestHeaders(
+          url: request.uri.toString(),
+          requestId: requestId,
+        ))
             ?.forEach((key, value) => request.headers.set(key, value));
 
         request.done.then((dart_io.HttpClientResponse response) {
@@ -431,11 +419,10 @@ class HttpClient implements dart_io.HttpClient {
     final requestId = _sendRequestStartNotification('$host:$port$path', 'PUT');
     return _getClient().put(host, port, path).then(
       (dart_io.HttpClientRequest request) async {
-        await _headersProvider
-            .requestHeaders(
-              url: request.uri.toString(),
-              requestId: requestId,
-            )
+        (await _headersProvider.requestHeaders(
+          url: request.uri.toString(),
+          requestId: requestId,
+        ))
             ?.forEach((key, value) => request.headers.set(key, value));
 
         request.done.then((dart_io.HttpClientResponse response) {
@@ -453,11 +440,10 @@ class HttpClient implements dart_io.HttpClient {
     final requestId = _sendRequestStartNotification(url.toString(), 'PUT');
     return _getClient().putUrl(url).then(
       (dart_io.HttpClientRequest request) async {
-        await _headersProvider
-            .requestHeaders(
-              url: request.uri.toString(),
-              requestId: requestId,
-            )
+        (await _headersProvider.requestHeaders(
+          url: request.uri.toString(),
+          requestId: requestId,
+        ))
             ?.forEach((key, value) => request.headers.set(key, value));
 
         request.done.then((dart_io.HttpClientResponse response) {
