@@ -9,7 +9,6 @@
 
 # BugSnag Flutter common packages
 
-// TODO: Add some content here
 
 ## Features
 

@@ -1,0 +1,25 @@
+name: bugsnag_flutter_dart_io_http_client
+description: "BugSnag flutter dart io http client wrapper."
+version: 2.0.0
+homepage: https://www.bugsnag.com/
+documentation: https://docs.bugsnag.com/performance/flutter/
+repository: https://github.com/bugsnag/bugsnag-flutter-dart-io-http-client
+issue_tracker: https://github.com/bugsnag/bugsnag-flutter-dart-io-http-client/issues
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  bugsnag_bridge:
+    git:
+      url: https://github.com/bugsnag/bugsnag-flutter-common
+      path: packages/bugsnag-flutter-bridge
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0

@@ -1,7 +1,8 @@
-name: bugsnag_bridge
-description: "BugSnag flutter bridge."
-version: 1.0.0
+name: bugsnag_flutter_dart_io_http_client
+description: "BugSnag flutter dart io http client wrapper."
+version: 1.2.0
 homepage: https://www.bugsnag.com/
+documentation: https://docs.bugsnag.com/performance/flutter/
 repository: https://github.com/bugsnag/bugsnag-flutter-common
 issue_tracker: https://github.com/bugsnag/bugsnag-flutter-common/issues
 
@@ -12,6 +13,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  bugsnag_bridge:
+    git:
+      url: https://github.com/bugsnag/bugsnag-flutter-common
+      path: packages/bugsnag-flutter-bridge
+
 
 dev_dependencies:
   flutter_test:
