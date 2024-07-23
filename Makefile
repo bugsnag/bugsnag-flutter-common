@@ -29,7 +29,7 @@ staging/%:
 	cp LICENSE staging/$*/.
 	-cp -n README.md staging/$*/.
 	cat CHANGELOG.md staging/$*/HISTORIC_CHANGELOG.md > staging/$*/CHANGELOG.md
-	rm -f staging/$*/CHANGELOG-legacy.md
+	rm -f staging/$*/HISTORIC_CHANGELOG.md
 	sed -i '' -e '1,2d' staging/$*/CHANGELOG.md
 	sed -i '' "s/^  bugsnag_bridge:.*/  bugsnag_bridge: ^$(BSG_FLUTTER_VERSION)/" staging/$*/pubspec.yaml
 	sed -i '' "s/path:.*/ /;s/publish_to: none/ /" staging/$*/pubspec.yaml
@@ -55,8 +55,7 @@ ifeq ($(VERSION),)
 endif
 	rm -rf staging
 	@git checkout -b release-v$(VERSION)
-	@git add packages/bugsnag_bridge/pubspec.yaml packages/bugsnag_http_client/pubspec.yaml
-		packages/bugsnag_flutter_dart_io_http_client/pubspec.yaml CHANGELOG.md VERSION
+	@git add packages/bugsnag_bridge/pubspec.yaml packages/bugsnag_http_client/pubspec.yaml packages/bugsnag_flutter_dart_io_http_client/pubspec.yaml CHANGELOG.md VERSION
 	@git diff --exit-code || (echo "you have unstaged changes - Makefile may need updating to `git add` some more files"; exit 1)
 	@git commit -m "Release v$(VERSION)"
 	@git push origin release-v$(VERSION)
