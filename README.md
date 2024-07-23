@@ -5,21 +5,11 @@
       <img alt="SmartBear BugSnag logo" src="https://assets.smartbear.com/m/3945e02cdc983893/original/BugSnag-Repository-Header-Light.svg">
     </picture>
   </a>
+  <h1>Flutter common packages</h1> 
 </div>
 
-# BugSnag Flutter common packages
-
-// TODO: Add some content here
-
-## Features
-
-
-## Getting Started
-
-
-## Usage
-
+This repository contains common functionality used by the [BugSnag Flutter Error](https://github.com/bugsnag/bugsnag-flutter) and [Performance](https://github.com/bugsnag/bugsnag-flutter) monitoring SDKs.
 
 ## License
 
-The BugSnag Flutter Performance SDK is free software released under the MIT License. See the [LICENSE](./LICENSE) for details.
+This code is free software released under the MIT License. See the [LICENSE](./LICENSE) for details.
