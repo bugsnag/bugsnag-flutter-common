@@ -28,7 +28,7 @@ staging/%:
 	rm -f staging/$*/pubspec.lock
 	cp LICENSE staging/$*/.
 	-cp -n README.md staging/$*/.
-	cat CHANGELOG.md staging/$*/CHANGELOG-legacy.md > staging/$*/CHANGELOG.md
+	cat CHANGELOG.md staging/$*/HISTORIC_CHANGELOG.md > staging/$*/CHANGELOG.md
 	rm -f staging/$*/CHANGELOG-legacy.md
 	sed -i '' -e '1,2d' staging/$*/CHANGELOG.md
 	sed -i '' "s/^  bugsnag_bridge:.*/  bugsnag_bridge: ^$(BSG_FLUTTER_VERSION)/" staging/$*/pubspec.yaml
@@ -37,7 +37,7 @@ staging/%:
 stage: clean staging/bugsnag_bridge staging/bugsnag_http_client staging/bugsnag_flutter_dart_io_http_client
 
 publish_dry/%:
-	cd staging/$* && $(FLUTTER_BIN) pub publish --dry-run
+	-cd staging/$* && $(FLUTTER_BIN) pub publish --dry-run
 	
 publish_dry: publish_dry/bugsnag_bridge publish_dry/bugsnag_http_client publish_dry/bugsnag_flutter_dart_io_http_client
 
