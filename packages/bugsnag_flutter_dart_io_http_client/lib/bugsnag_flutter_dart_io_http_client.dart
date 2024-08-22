@@ -11,7 +11,7 @@ void addSubscriber(dynamic Function(dynamic)? callback) {
 }
 
 class HttpClient implements dart_io.HttpClient {
-  final dart_io.HttpClient _client = dart_io.HttpClient();
+  final dart_io.HttpClient _client;
   late final HttpHeadersProvider _headersProvider = HttpHeadersProviderImpl();
   static int _requestId = 0;
   @override
@@ -28,6 +28,9 @@ class HttpClient implements dart_io.HttpClient {
 
   @override
   String? userAgent;
+
+  HttpClient({dart_io.SecurityContext? context})
+      : _client = dart_io.HttpClient(context: context);
 
   dart_io.HttpClient _getClient() {
     _client.autoUncompress = autoUncompress;
